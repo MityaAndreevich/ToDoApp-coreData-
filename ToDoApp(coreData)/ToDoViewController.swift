@@ -31,6 +31,10 @@ class ToDoViewController: UIViewController {
     
     private func setConstraints() {
         textField.translatesAutoresizingMaskIntoConstraints = false
-        
+        NSLayoutConstraint.activate([
+            textField.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),
+            textField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            textField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
+        ])
     }
 }
