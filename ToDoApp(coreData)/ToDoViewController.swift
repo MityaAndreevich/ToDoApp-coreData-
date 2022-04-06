@@ -9,7 +9,7 @@ import UIKit
 
 class ToDoViewController: UIViewController {
     private lazy var textField: UITextField = {
-       let textField = UITextField()
+        let textField = UITextField()
         textField.placeholder = "New Task"
         textField.borderStyle = .roundedRect
         return textField
@@ -80,5 +80,4 @@ class ToDoViewController: UIViewController {
     @objc private func cancel() {
         dismiss(animated: true)
     }
-    
 }
