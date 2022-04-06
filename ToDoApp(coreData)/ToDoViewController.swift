@@ -26,10 +26,21 @@ class ToDoViewController: UIViewController {
         return button
     }()
     
+    private lazy var cancelButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = UIColor(red: 178/255, green: 6/255, blue: 0, alpha: 1)
+        button.setTitle("Cancel", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 4
+        button.addTarget(self, action: #selector(cancel), for: .touchUpInside)
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        setupSubViews(textField, saveButton)
+        setupSubViews(textField, saveButton, cancelButton)
         setConstraints()
     }
     
@@ -53,9 +64,21 @@ class ToDoViewController: UIViewController {
             saveButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             saveButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
         ])
+        
+        cancelButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            cancelButton.topAnchor.constraint(equalTo: saveButton.bottomAnchor, constant: 20),
+            cancelButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            cancelButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40)
+        ])
     }
     
     @objc private func save() {
         dismiss(animated: true)
     }
+    
+    @objc private func cancel() {
+        dismiss(animated: true)
+    }
+    
 }
