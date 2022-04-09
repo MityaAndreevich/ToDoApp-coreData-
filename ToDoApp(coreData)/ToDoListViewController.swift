@@ -16,7 +16,7 @@ class ToDoListViewController: UITableViewController {
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     private let cellID = "task"
     private var todoList: [Task] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
