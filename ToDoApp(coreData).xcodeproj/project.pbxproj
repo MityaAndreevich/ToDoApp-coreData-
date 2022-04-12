@@ -12,7 +12,6 @@
 		5F2EE10427FB422200DB4B13 /* ToDoApp_coreData_.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5F2EE10227FB422200DB4B13 /* ToDoApp_coreData_.xcdatamodeld */; };
 		5F2EE10627FB422200DB4B13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F2EE10527FB422200DB4B13 /* Assets.xcassets */; };
 		5F2EE10927FB422200DB4B13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F2EE10727FB422200DB4B13 /* LaunchScreen.storyboard */; };
-		5F2EE11127FC443800DB4B13 /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2EE11027FC443800DB4B13 /* ToDoViewController.swift */; };
 		5F2EE1132803415300DB4B13 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F2EE1122803415300DB4B13 /* StorageManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -24,7 +23,6 @@
 		5F2EE10527FB422200DB4B13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F2EE10827FB422200DB4B13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5F2EE10A27FB422200DB4B13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5F2EE11027FC443800DB4B13 /* ToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
 		5F2EE1122803415300DB4B13 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,12 +58,11 @@
 			children = (
 				5F2EE0F927FB422200DB4B13 /* AppDelegate.swift */,
 				5F2EE0FD27FB422200DB4B13 /* ToDoListViewController.swift */,
-				5F2EE11027FC443800DB4B13 /* ToDoViewController.swift */,
+				5F2EE1122803415300DB4B13 /* StorageManager.swift */,
 				5F2EE10527FB422200DB4B13 /* Assets.xcassets */,
 				5F2EE10727FB422200DB4B13 /* LaunchScreen.storyboard */,
 				5F2EE10A27FB422200DB4B13 /* Info.plist */,
 				5F2EE10227FB422200DB4B13 /* ToDoApp_coreData_.xcdatamodeld */,
-				5F2EE1122803415300DB4B13 /* StorageManager.swift */,
 			);
 			path = "ToDoApp(coreData)";
 			sourceTree = "<group>";
@@ -140,7 +137,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F2EE11127FC443800DB4B13 /* ToDoViewController.swift in Sources */,
 				5F2EE0FE27FB422200DB4B13 /* ToDoListViewController.swift in Sources */,
 				5F2EE1132803415300DB4B13 /* StorageManager.swift in Sources */,
 				5F2EE0FA27FB422200DB4B13 /* AppDelegate.swift in Sources */,

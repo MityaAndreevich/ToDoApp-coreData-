@@ -6,25 +6,23 @@
 //
 
 import UIKit
-import CoreData
-
-protocol ToDoViewControllerDelegate {
-    func reloadData()
-}
 
 class ToDoListViewController: UITableViewController {
-    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     private let cellID = "task"
     private var todoList: [Task] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+        setupView()
         setupNavigationBar()
         fetchData()
     }
     
+    private func setupView() {
+        view.backgroundColor = .white
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+    }
     private func setupNavigationBar() {
         title = "ToDo List"
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -55,13 +53,24 @@ class ToDoListViewController: UITableViewController {
         showAlert(with: "New Task", and: "What do You want to do?")
     }
     
+    private func save(_ taskName: String) {
+        StorageManager.shared.save(taskName) { task in
+            self.todoList.append(task)
+            self.tableView.insertRows(
+                at: [IndexPath(row: self.todoList.count - 1, section: 0)],
+                with: .automatic
+            )
+        }
+    }
+    
     private func fetchData() {
-        let fetchRequest = Task.fetchRequest()
-        
-        do {
-            todoList = try context.fetch(fetchRequest)
-        } catch let error {
-            print("Failed to fetch data", error)
+        StorageManager.shared.fetchData { result in
+            switch result {
+            case .success(let todoList):
+                self.todoList = todoList
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
         }
     }
     
@@ -81,23 +90,6 @@ class ToDoListViewController: UITableViewController {
         present(alert, animated: true)
     }
     
-    private func save(_ taskName: String) {
-        guard let entityDescription = NSEntityDescription.entity(forEntityName: "Task", in: context) else { return }
-        guard let task = NSManagedObject(entity: entityDescription, insertInto: context) as? Task else { return }
-        task.taskTitle = taskName
-        todoList.append(task)
-        
-        let cellIndex = IndexPath(row: todoList.count - 1, section: 0)
-        tableView.insertRows(at: [cellIndex], with: .automatic)
-        
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch let error {
-                print(error)
-            }
-        }
-    }
 }
 
 //MARK: - UITableViewDataSource
@@ -116,10 +108,3 @@ extension ToDoListViewController {
     }
 }
 
-//MARK: - ToDoViewControllerDelegate
-extension ToDoListViewController: ToDoViewControllerDelegate {
-    func reloadData() {
-        fetchData()
-        tableView.reloadData()
-    }
-}
