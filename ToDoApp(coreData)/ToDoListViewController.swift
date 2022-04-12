@@ -89,7 +89,6 @@ class ToDoListViewController: UITableViewController {
         
         present(alert, animated: true)
     }
-    
 }
 
 //MARK: - UITableViewDataSource
@@ -108,3 +107,19 @@ extension ToDoListViewController {
     }
 }
 
+ //MARK: - UITableViewDelegate
+extension ToDoListViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let task = todoList[indexPath.row]
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let task = todoList[indexPath.row]
+        if editingStyle == .delete {
+            todoList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            StorageManager.shared.delete(task)
+        }
+    }
+}
