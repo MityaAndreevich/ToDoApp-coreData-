@@ -5,7 +5,6 @@
 //  Created by Dmitry Logachev on 10.04.2022.
 //
 
-import Foundation
 import CoreData
 
 class StorageManager {
