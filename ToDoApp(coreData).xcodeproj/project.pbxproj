@@ -61,11 +61,11 @@
 				5F2EE0F927FB422200DB4B13 /* AppDelegate.swift */,
 				5F2EE0FD27FB422200DB4B13 /* ToDoListViewController.swift */,
 				5F2EE1122803415300DB4B13 /* StorageManager.swift */,
+				5F2EE1142805D5CD00DB4B13 /* AlertController.swift */,
 				5F2EE10527FB422200DB4B13 /* Assets.xcassets */,
 				5F2EE10727FB422200DB4B13 /* LaunchScreen.storyboard */,
 				5F2EE10A27FB422200DB4B13 /* Info.plist */,
 				5F2EE10227FB422200DB4B13 /* ToDoApp_coreData_.xcdatamodeld */,
-				5F2EE1142805D5CD00DB4B13 /* AlertController.swift */,
 			);
 			path = "ToDoApp(coreData)";
 			sourceTree = "<group>";
